@@ -1,0 +1,19 @@
+.productList{
+   display: grid;
+   margin: 0 auto;
+   justify-items: center; 
+   background-color: aquamarine;
+   width: 800px;
+   padding: 0 0 20px
+}
+
+.product{
+   background-color: white;
+   width: 720px;
+   padding: 20px;
+   margin-top: 20px
+}
+
+.product h2{
+   margin: 0 0 20px
+}

@@ -1,0 +1,10 @@
+.header{
+   display: grid;
+   margin: 0 auto;
+   background-color: aqua;
+   width: 760px;
+   height: 200px;
+   text-align: right;
+   padding: 20px;
+}
+
