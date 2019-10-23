@@ -22,7 +22,7 @@ const productListReducer = (state = initialState, action) => {
 }
 
 // ------------------------- Action Creators -------------------------
-// ------------------------- Get Product List -------------------------
+// ------------------------- Get Comments -------------------------
 
 export const getProductCommentsAC = data => {
    return ({ type: GET_PRODUCT_COMMENTS, data })
@@ -30,10 +30,10 @@ export const getProductCommentsAC = data => {
 
 
 // ------------------------- Thunk Creators  -------------------------
-// ------------------------- Get Product List -------------------------
-export const getProductCommentsTC = () =>{
+// ------------------------- Get Comments -------------------------
+export const getProductCommentsTC = (id) =>{
    return (dispatch) => {
-      getProductCommentsAPI()
+      getProductCommentsAPI(id)
       .then((response) => {
          dispatch(getProductCommentsAC(response.data))
       })

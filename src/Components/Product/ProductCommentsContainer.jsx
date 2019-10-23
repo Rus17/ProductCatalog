@@ -16,13 +16,17 @@ class ProductCommentsContainer extends React.Component {
    render(props) {
       return (
          <div>
-            {this.props.id} && <ProductComments />
+            {this.props.id && <ProductComments commentsList={this.props.commentsList} />}
          </div>
       )
    }
 }
 
-
+let MapStateToProps = (state) => {
+   return {
+      commentsList: state.commentsListPage.commentsList
+   }
+}
 
 let MapDispatchToProps = (dispatch) => {
    return {
@@ -30,4 +34,4 @@ let MapDispatchToProps = (dispatch) => {
    }
 }
 
-export default connect(null, MapDispatchToProps)(ProductCommentsContainer)
+export default connect(MapStateToProps, MapDispatchToProps)(ProductCommentsContainer)

@@ -1,13 +1,15 @@
 import React from "react"
 import {Provider, connect} from "react-redux"
 import {BrowserRouter, Route} from "react-router-dom"
-
 import ProductListContainer from "./Components/ProductList/ProductListContainer"
 import Header from "./Components/Header/Header"
 import store from "./redux/store.js"
 import "./app.css"
 import ProductContainer from "./Components/Product/ProductContainer"
 import {getProductListTC} from "./redux/productListReducer"
+import Authorization from "./Components/Authorization/Authorization"
+import Registration from "./Components/Registration/Registration"
+
 
 class AppContainer extends React.Component{
 
@@ -19,9 +21,12 @@ class AppContainer extends React.Component{
       return (
          <div className="container">
             <Header />
-
             <Route exact path='/' component={ProductListContainer} />
             <Route path='/product/:id' component={ProductContainer} />
+            <Route path='/authorization' component={Authorization} />
+            <Route path='/registration' component={Registration} />
+         
+         
          </div>
 
       )

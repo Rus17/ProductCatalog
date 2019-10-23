@@ -1,0 +1,24 @@
+.comment{
+   display: grid;
+   background-color: white;
+   width: 720px;
+   padding: 20px;
+   margin-top: 20px;
+/*   justify-content: space-between*/
+}
+
+.name{
+   margin: 0
+}
+
+commentId{
+  
+}
+
+.date{
+   justify-self: end
+}
+
+.comment img {
+   width: 20px
+}
