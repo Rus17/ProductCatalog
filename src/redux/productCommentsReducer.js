@@ -1,19 +1,19 @@
-import {getProductListAPI} from "./../api/api"
+import {getProductCommentsAPI} from "./../api/api"
 
-const GET_PRODUCT_LIST = "GET_PRODUCT_LIST"
+const GET_PRODUCT_COMMENTS = "GET_PRODUCT_COMMENTS"
 
 let initialState = {
-   productList: []
+   commentsList: []
 }
 
 
 const productListReducer = (state = initialState, action) => {
 
    switch(action.type) {
-      case GET_PRODUCT_LIST:
+      case GET_PRODUCT_COMMENTS:
          return {
             ...state,
-            productList: action.data
+            commentsList: action.data
          }
 
       default:
@@ -24,18 +24,18 @@ const productListReducer = (state = initialState, action) => {
 // ------------------------- Action Creators -------------------------
 // ------------------------- Get Product List -------------------------
 
-export const getProductListAC = data => {
-   return ({ type: GET_PRODUCT_LIST, data })
+export const getProductCommentsAC = data => {
+   return ({ type: GET_PRODUCT_COMMENTS, data })
 }
 
 
 // ------------------------- Thunk Creators  -------------------------
 // ------------------------- Get Product List -------------------------
-export const getProductListTC = () =>{
+export const getProductCommentsTC = () =>{
    return (dispatch) => {
-      getProductListAPI()
+      getProductCommentsAPI()
       .then((response) => {
-         dispatch(getProductListAC(response.data))
+         dispatch(getProductCommentsAC(response.data))
       })
    }
 }

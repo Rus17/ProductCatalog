@@ -2,23 +2,21 @@ import React from "react"
 import {connect} from "react-redux"
 import {getProductListTC} from "./../../redux/productListReducer"
 import ProductList from "./ProductList"
-import {server} from "./../../api/api"
+
 
 
 class ProductListContainer extends React.Component {
-   
+
    componentDidMount(props) {
-      this.props.getProductListTC()
+      // this.props.getProductListTC()
    }
-   
+
    render() {
       return (
-         <ProductList productListPage={this.props.productListPage} server={server}/>
-      
+         <ProductList productListPage={this.props.productListPage} />
+
       )
    }
-   
-   
 }
 
 let MapStateToProps = (state) => {

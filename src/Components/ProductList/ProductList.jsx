@@ -1,22 +1,22 @@
 import React from "react"
 import "./productList.css"
+import {NavLink} from "react-router-dom"
 
 const ProductList = (props) => {
+
    let list = props.productListPage.productList.map((p) => {
       return (
-         <div className="product" key={p.id}>
-            <h2>{p.title}</h2>
-            <img src={`${props.server}/static/${p.img}`} alt="product"/>
-            <div>{p.text}</div>
-         </div>
+         <NavLink to={`/product/${p.id}`} className="product" key={p.id}>
+               <h2>{p.title}</h2>
+         </NavLink>
       )
    })
-   
+
    return(
       <div className="productList">
          {list}
       </div>
-      
+
    )
 }
 
