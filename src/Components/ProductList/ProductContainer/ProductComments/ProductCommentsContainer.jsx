@@ -1,10 +1,8 @@
 import React from "react"
 import {connect} from "react-redux"
 import ProductComments from "./ProductComments"
-import {getProductCommentsTC} from "./../../redux/productCommentsReducer"
-
-
-import "./../ProductList/productList.css"
+import {getProductCommentsTC} from "./../../../../redux/productCommentsReducer"
+import "./../../../ProductList/productList.css"
 
 class ProductCommentsContainer extends React.Component {
 

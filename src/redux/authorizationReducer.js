@@ -1,10 +1,12 @@
 import {authorizationAPI} from "./../api/api"
 
 const AUTHORIZATION = "AUTHORIZATION"
+const AUTH_ERROR = "AUTH_ERROR"
 
 let initialState = {
-   registered: false,
-   token: ""
+   // registered: false,
+   token: "",
+   authError: ""
 }
 
 
@@ -14,9 +16,15 @@ const authorizationReducer = (state = initialState, action) => {
       case AUTHORIZATION:
          return {
             ...state,
-            registered: true,
+            // registered: true,
             token: action.token
          }
+
+         case AUTH_ERROR:
+            return {
+               ...state,
+               authError: action.message
+            }
 
       default:
          return state;
@@ -24,20 +32,27 @@ const authorizationReducer = (state = initialState, action) => {
 }
 
 // ------------------------- Action Creators -------------------------
-// ------------------------- Registration -------------------------
+// ----------------- Registration / authorization --------------------
 
-const authorizationAC = token => {
+export const authorizationAC = token => {
    return ({ type: AUTHORIZATION, token })
 }
 
+const authErrorAC = message => {
+   return ({ type: AUTH_ERROR, message })
+}
+
+
+
 
 // ------------------------- Thunk Creators  -------------------------
-// ------------------------- Registration -------------------------
-export const authorizationTC = (data) =>{
+// ----------------- Registration / authorization --------------------
+export const authorizationTC = (data, reg) =>{
    return (dispatch) => {
-      authorizationAPI(data)
+      authorizationAPI(data, reg)
       .then((response) => {
-         dispatch(authorizationAC(response.data.token))
+         if(response.data.success)dispatch(authorizationAC(response.data.token))
+         else dispatch(authErrorAC(response.data.message))
       })
    }
 }

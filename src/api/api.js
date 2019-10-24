@@ -12,18 +12,11 @@ export const getProductCommentsAPI = (id) => {
    return axios.get(`${server}api/reviews/${id}`)
 }
 
-// ------------------------- Registration -------------------------
-export const registrationAPI = (data) => {
+// ----------------- Registration / authorization --------------------
+export const authorizationAPI = (data, reg) => {
+   let regUrl = reg ? "register" : "login"
    let dataJSON = JSON.stringify(data)
-   return axios.post(`${server}api/register/`, dataJSON, {
-      headers: { 'content-type': 'application/json' }
-   })
-}
-
-// ------------------------- Authorization -------------------------
-export const authorizationAPI = (data) => {
-   let dataJSON = JSON.stringify(data)
-   return axios.post(`${server}api/login/`, dataJSON, {
+   return axios.post(`${server}api/${regUrl}/`, dataJSON, {
       headers: { 'content-type': 'application/json' }
    })
 }

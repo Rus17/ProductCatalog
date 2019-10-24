@@ -3,7 +3,7 @@ import thunkMiddleware from "redux-thunk"
 import productListReducer from "./productListReducer"
 import productCommentsReducer from "./productCommentsReducer"
 import {reducer as formReducer} from "redux-form"
-import registrationReducer from "./registrationReducer"
+// import registrationReducer from "./registrationReducer"
 import authorizationReducer from "./authorizationReducer"
 
 
@@ -11,7 +11,7 @@ let reducers = combineReducers({
    productListPage: productListReducer,
    commentsListPage: productCommentsReducer,
    form: formReducer,
-   registrationPage: registrationReducer,
+   // registrationPage: registrationReducer,
    authorizationPage: authorizationReducer
 })
 

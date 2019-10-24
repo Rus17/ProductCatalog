@@ -1,19 +1,22 @@
 import React from "react"
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {server} from "./../../api/api"
-import ProductInfo from "./ProductInfo"
-import ProductCommentsContainer from "./ProductCommentsContainer"
+import {server} from "./../../../api/api"
+import ProductInfo from "./ProductInfo/ProductInfo"
+import ProductCommentsContainer from "./ProductComments/ProductCommentsContainer"
+import MyComment from "./MyComment/MyComment"
 
 const ProductContainer = (props) => {
 
    const showProduct = props.productList.filter((p) => {
-         return (p.id == props.match.params.id)
+      return (p.id == props.match.params.id)
    })
 
    return (
       <div  className="productList">
          <ProductInfo showProduct={showProduct[0]} server={server} />
+         // {props.token && <MyComment />}
+         <MyComment />
          <ProductCommentsContainer id={props.match.params.id}/>
       </div>
    )
@@ -26,7 +29,8 @@ const WithUrlProduct = withRouter(ProductContainer)
 
 let MapStateToProps = (state) => {
    return {
-      productList: state.productListPage.productList
+      productList: state.productListPage.productList,
+      token: state.authorizationPage.token
    }
 }
 

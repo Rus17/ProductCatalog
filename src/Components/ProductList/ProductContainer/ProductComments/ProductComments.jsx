@@ -1,36 +1,30 @@
 import React from "react"
 import "./productComments.css"
-import starFill from "./../../images/starFill.png"
-import starStroke from "./../../images/starStroke.png"
-
-
-
+import starFill from "./../../../../images/starFill.png"
+import starStroke from "./../../../../images/starStroke.png"
 
 const Rating = (props) => {
    const starsCounter = () => {
-      let stars = []      
+      let stars = []
       for(var i = 0; i < 5; i++){
          if(i < props.rate) stars[i] = <img key={i} src={starFill} alt="star"/>
-         else stars[i] = <img key={i} src={starStroke} alt="star"/>       
+         else stars[i] = <img key={i} src={starStroke} alt="star"/>
       }
       return stars
    }
-      
+
    return (
       <div>
-         {starsCounter()}         
-      </div>      
-   )   
+         {starsCounter()}
+      </div>
+   )
 }
 
-   
-   
-   
 
 const ProductComments = (props) => {
-   
+
       const showComments = props.commentsList.map((c) => {
-      return (         
+      return (
          <div key={c.id} className="comment">
             <h2 className="name">{c.created_by.username}</h2>
             {/*<span className="commentId">Comment # {c.id}</span>*/}
@@ -39,11 +33,11 @@ const ProductComments = (props) => {
               {/*Rating: {c.rate} */}
            </div>
            <div>
-              {c.text}              
+              {c.text}
            </div>
            <div className="date">
               {c.created_at}
-           </div>            
+           </div>
          </div>
       )
    })

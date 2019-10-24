@@ -1,6 +1,6 @@
 import React from "react"
 
-import "./../ProductList/productList.css"
+import "./../../../ProductList/productList.css"
 
 const ProductInfo = (props) => {
    if(props.showProduct){
