@@ -11,14 +11,15 @@
    margin: 0
 }
 
-commentId{
-
-}
-
 .date{
    justify-self: end
 }
 
 .comment img {
    width: 20px
+}
+
+.button{
+  justify-self: start;
+  margin-left: 20px
 }

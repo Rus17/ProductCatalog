@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom"
 
 
 const Header = (props) => {
-   console.log("props", props)
    if(!props.token){
    return (
       <div className="header">

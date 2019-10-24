@@ -20,3 +20,14 @@ export const authorizationAPI = (data, reg) => {
       headers: { 'content-type': 'application/json' }
    })
 }
+
+// ------------------------- Send My Comment -------------------------
+export const sendMyCommentAPI = (data, id, token) => {
+   let dataJSON = JSON.stringify(data)
+   return axios.post(`${server}api/reviews/${id}`, dataJSON, {
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Token ${token}`
+      }
+   })
+}

@@ -4,7 +4,6 @@ const AUTHORIZATION = "AUTHORIZATION"
 const AUTH_ERROR = "AUTH_ERROR"
 
 let initialState = {
-   // registered: false,
    token: "",
    authError: ""
 }
@@ -16,7 +15,6 @@ const authorizationReducer = (state = initialState, action) => {
       case AUTHORIZATION:
          return {
             ...state,
-            // registered: true,
             token: action.token
          }
 

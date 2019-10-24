@@ -1,4 +1,4 @@
-import {getProductCommentsAPI} from "./../api/api"
+import {getProductCommentsAPI, sendMyCommentAPI} from "./../api/api"
 
 const GET_PRODUCT_COMMENTS = "GET_PRODUCT_COMMENTS"
 
@@ -16,7 +16,7 @@ const productListReducer = (state = initialState, action) => {
             commentsList: action.data
          }
 
-      default:
+        default:
          return state;
    }
 }
@@ -39,5 +39,16 @@ export const getProductCommentsTC = (id) =>{
       })
    }
 }
+
+// ------------------------- Send My Comment -------------------------
+export const sendMyCommentTC = (data, id, token) =>{
+   return (dispatch) => {
+      sendMyCommentAPI(data, id, token)
+      .then((response) => {
+         dispatch(getProductCommentsTC(id))
+      })
+   }
+}
+
 
 export default productListReducer

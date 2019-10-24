@@ -15,8 +15,7 @@ const ProductContainer = (props) => {
    return (
       <div  className="productList">
          <ProductInfo showProduct={showProduct[0]} server={server} />
-         // {props.token && <MyComment />}
-         <MyComment />
+         {props.token && <MyComment id={props.match.params.id} token={props.token}/>}
          <ProductCommentsContainer id={props.match.params.id}/>
       </div>
    )
