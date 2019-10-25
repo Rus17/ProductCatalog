@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import ProductComments from "./ProductComments"
 import {getProductCommentsTC} from "./../../../../redux/productCommentsReducer"
 import "./../../../ProductList/productList.css"
+import Preloader from "./../../../Preloader/Preloader"
 
 class ProductCommentsContainer extends React.Component {
 
@@ -12,6 +13,7 @@ class ProductCommentsContainer extends React.Component {
 
 
    render(props) {
+     if(this.props.commentsList.length === 0) return <Preloader />
       return (
          <div>
             {this.props.id && <ProductComments commentsList={this.props.commentsList} />}

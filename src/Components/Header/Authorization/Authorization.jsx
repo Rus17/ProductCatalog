@@ -6,6 +6,9 @@ import {authorizationTC} from "./../../../redux/authorizationReducer"
 import {Field, reduxForm} from 'redux-form'
 import {Redirect} from 'react-router-dom'
 import "./authorization.css"
+import {Input} from './../../FormsControls/FormsControls'
+import {required, minInput} from "./../../../Validators/validators"
+
 
 const AuthForm = (props) => {
    return (
@@ -13,9 +16,17 @@ const AuthForm = (props) => {
         <div className="product">
            <form onSubmit={props.handleSubmit}>
               Enter your login
-               <Field name="login" type="text" component="input" autoComplete="off" /><br />
+               <Field
+                  name="login"
+                  type="text"
+                  component={Input}
+                  validate={[required, minInput]} /><br />
                Enter your password
-               <Field name="password" type="password" component="input" /><br />
+               <Field
+                  name="password"
+                  type="password"
+                  component={Input}
+                  validate={[required, minInput]}  /><br />
                 Remember me
                <input type="checkbox"/><br />
                <span className="error"> {props.authError}</span><br />

@@ -5,6 +5,8 @@ import starStroke from "./../../../../images/starStroke.png"
 import "./../ProductComments/productComments.css"
 import {sendMyCommentTC} from "./../../../../redux/productCommentsReducer"
 import {connect} from 'react-redux'
+import {TextArea} from './../../../FormsControls/FormsControls'
+import {required, minText} from "./../../../../Validators/validators"
 
 const CommentForm = (props) => {
 
@@ -72,7 +74,8 @@ const CommentForm = (props) => {
            <Field
               name="text"
               type="textarea"
-              component="textarea"
+              component={TextArea}
+              validate={[required, minText]}
               rows="10"
               cols="60" />
         </div><br />

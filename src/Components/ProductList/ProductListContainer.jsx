@@ -2,6 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 import {getProductListTC} from "./../../redux/productListReducer"
 import ProductList from "./ProductList"
+import Preloader from "./../Preloader/Preloader"
 
 
 
@@ -12,6 +13,7 @@ class ProductListContainer extends React.Component {
    }
 
    render() {
+     if(this.props.productListPage.productList.length === 0) return <Preloader />
       return (
          <ProductList productListPage={this.props.productListPage} />
 
