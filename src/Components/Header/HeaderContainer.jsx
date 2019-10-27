@@ -8,7 +8,6 @@ const HeaderContainer = (props) => {
 }
 
 
-
 let MapStateToProps = (state) => {
    return {
       token: state.authorizationPage.token

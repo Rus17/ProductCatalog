@@ -1,5 +1,4 @@
-import React from "react"
-import {NavLink} from "react-router-dom"
+import React, {useState} from "react"
 import "./../../ProductList/productList.css"
 import {connect} from "react-redux"
 import {authorizationTC} from "./../../../redux/authorizationReducer"
@@ -10,7 +9,8 @@ import {Input} from './../../FormsControls/FormsControls'
 import {required, minInput} from "./../../../Validators/validators"
 
 
-const AuthForm = (props) => {
+export const AuthForm = (props) => {
+   
    return (
       <div className="productList">
         <div className="product">
@@ -27,12 +27,13 @@ const AuthForm = (props) => {
                   type="password"
                   component={Input}
                   validate={[required, minInput]}  /><br />
-                Remember me
-               <input type="checkbox"/><br />
-               <span className="error"> {props.authError}</span><br />
-               <button>Login</button><br /><br />
+              {/*Remember me
+               <input type="checkbox"/><br />*/}
+               <span className="error"> {props.authError}</span><br />               
+              {!props.regMode ? <button>Login</button> : <button>Sign up</button>}<br /><br />
             </form>
-            <NavLink to="/Registration">To register</NavLink>
+            {!props.regMode && <div>You are not registred?
+            <button onClick={() => props.setReg(true)}>To register</button></div>}             
          </div>
       </div>
    )
@@ -43,19 +44,22 @@ let ReduxLoginForm = reduxForm ({form: 'login'})(AuthForm)
 
 
 const Authorization = (props) => {
+   
+   let [regMode, setReg] = useState(false)
 
    const onSubmit = (formData) =>{
       let data = {
          username: formData.login,
          password: formData.password
       }
-      props.authorizationTC(data)
+      let reg
+      if(regMode) reg = "registration"
+      props.authorizationTC(data, reg)
    }
 
-   if(!props.token){
-      return <ReduxLoginForm onSubmit={onSubmit} authError={props.authError}/>
-   }
-   else return <Redirect to={"/"} />
+   if (!props.token){
+      return <ReduxLoginForm regMode={regMode} setReg={setReg} onSubmit={onSubmit} authError={props.authError}/>
+   } else return <Redirect to={"/"} />
 }
 
 let MapStateToProps = (state) => {
@@ -67,7 +71,7 @@ let MapStateToProps = (state) => {
 
 let MapDispatchToProps = (dispatch) => {
    return {
-      authorizationTC: (data) => dispatch(authorizationTC(data))
+      authorizationTC: (data, reg) => dispatch(authorizationTC(data, reg))
    }
 }
 

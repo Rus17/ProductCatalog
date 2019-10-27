@@ -10,34 +10,34 @@ import {required, minText} from "./../../../../Validators/validators"
 
 const CommentForm = (props) => {
 
-  // let [myRate, setRate] = useState(0)
   let [starsCounter, setStars] = useState(0)
-
+  
+  // --------- Stars after clicking ---------------
    const selectedStars = () => {
       let stars = []
-      for(let i = 1; i < 6; i++){
-         if(i <= props.myRate) {
+      for (let i = 1; i < 6; i++) {
+         if (i <= props.myRate) {
            stars[i] = <img
                         key={i}
                         src={starFill}
                         alt="star"
                         onClick={() => {props.setRate(i)}}/>
-      }
-         else {
+         } else {
            stars[i] = <img
                           key={i}
                           src={starStroke}
                           alt="star"
                           onClick={() => {props.setRate(i)}}/>
-                        }
+         }
       }
       return stars
    }
 
+   // --------- Stars before clicking ---------------
    const showCounter = () => {
       let stars = []
-      for(let i = 1; i < 6; i++){
-        if(i <= starsCounter){
+      for (let i = 1; i < 6; i++) {
+         if (i <= starsCounter){
                stars[i] = <img
                               src={starFill}
                               key={i}
@@ -46,9 +46,8 @@ const CommentForm = (props) => {
                               onMouseLeave={() => setStars(0)}
                               onClick={() => {props.setRate(i)}
                               } />
-      }
-      else {
-        stars[i] = <img
+         } else {
+            stars[i] = <img
                        src={starStroke}
                        key={i}
                        alt="star"
@@ -56,8 +55,8 @@ const CommentForm = (props) => {
                        onMouseLeave={() => setStars(0)}
                        onClick={() => {props.setRate(i)}
                        } />
+         }
       }
-    }
       return stars
    }
 
@@ -104,7 +103,7 @@ const MyComment = (props) => {
     setRate(0)
    }
 
-   if(!commentMode) return (
+   if (!commentMode) return (
      <button className="button" onClick={() => setEditMode(true)}>
                               Write a review
                            </button>

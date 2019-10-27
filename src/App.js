@@ -8,23 +8,21 @@ import "./app.css"
 import ProductContainer from "./Components/ProductList/ProductContainer/ProductContainer"
 import {getProductListTC} from "./redux/productListReducer"
 import Authorization from "./Components/Header/Authorization/Authorization"
-import Registration from "./Components/Header/Authorization/Registration/Registration"
 
 
-class AppContainer extends React.Component{
+class AppContainer extends React.Component {
 
-   componentDidMount(props){
+   componentDidMount(props) {
       this.props.getProductListTC()
    }
 
-   render(){
+   render() {
       return (
          <div className="container">
             <HeaderContainer />
             <Route exact path='/' component={ProductListContainer} />
             <Route path='/product/:id' component={ProductContainer} />
             <Route path='/authorization' component={Authorization} />
-            <Route path='/registration' component={Registration} />
          </div>
 
       )

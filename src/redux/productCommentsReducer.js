@@ -31,7 +31,7 @@ export const getProductCommentsAC = data => {
 
 // ------------------------- Thunk Creators  -------------------------
 // ------------------------- Get Comments -------------------------
-export const getProductCommentsTC = (id) =>{
+export const getProductCommentsTC = (id) => {
    return (dispatch) => {
       getProductCommentsAPI(id)
       .then((response) => {
@@ -41,7 +41,7 @@ export const getProductCommentsTC = (id) =>{
 }
 
 // ------------------------- Send My Comment -------------------------
-export const sendMyCommentTC = (data, id, token) =>{
+export const sendMyCommentTC = (data, id, token) => {
    return (dispatch) => {
       sendMyCommentAPI(data, id, token)
       .then((response) => {
@@ -49,6 +49,5 @@ export const sendMyCommentTC = (data, id, token) =>{
       })
    }
 }
-
 
 export default productListReducer

@@ -6,8 +6,8 @@ import starStroke from "./../../../../images/starStroke.png"
 const Rating = (props) => {
    const starsCounter = () => {
       let stars = []
-      for(var i = 0; i < 5; i++){
-         if(i < props.rate) stars[i] = <img key={i} src={starFill} alt="star"/>
+      for (var i = 0; i < 5; i++){
+         if (i < props.rate) stars[i] = <img key={i} src={starFill} alt="star"/>
          else stars[i] = <img key={i} src={starStroke} alt="star"/>
       }
       return stars
@@ -23,7 +23,8 @@ const Rating = (props) => {
 
 const ProductComments = (props) => {
 
-      const showComments = props.commentsList.map((c) => {
+   const showComments = props.commentsList.map((c) => {
+         
       return (
          <div key={c.id} className="comment">
             <h2 className="name">{c.created_by.username}</h2>

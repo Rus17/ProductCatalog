@@ -18,11 +18,11 @@ const authorizationReducer = (state = initialState, action) => {
             token: action.token
          }
 
-         case AUTH_ERROR:
-            return {
-               ...state,
-               authError: action.message
-            }
+      case AUTH_ERROR:
+         return {
+            ...state,
+            authError: action.message
+         }
 
       default:
          return state;
@@ -36,16 +36,15 @@ export const authorizationAC = token => {
    return ({ type: AUTHORIZATION, token })
 }
 
+// ----------------------- Get error message --------------------------
 const authErrorAC = message => {
    return ({ type: AUTH_ERROR, message })
 }
 
 
-
-
 // ------------------------- Thunk Creators  -------------------------
 // ----------------- Registration / authorization --------------------
-export const authorizationTC = (data, reg) =>{
+export const authorizationTC = (data, reg) => {
    return (dispatch) => {
       authorizationAPI(data, reg)
       .then((response) => {

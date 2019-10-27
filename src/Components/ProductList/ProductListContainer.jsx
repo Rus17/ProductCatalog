@@ -16,7 +16,6 @@ class ProductListContainer extends React.Component {
      if(this.props.productListPage.productList.length === 0) return <Preloader />
       return (
          <ProductList productListPage={this.props.productListPage} />
-
       )
    }
 }
