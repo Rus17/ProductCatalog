@@ -9,8 +9,8 @@ import {Input} from './../../FormsControls/FormsControls'
 import {required, minInput} from "./../../../Validators/validators"
 
 
-export const AuthForm = (props) => {
-   
+const AuthForm = (props) => {
+
    return (
       <div className="productList">
         <div className="product">
@@ -29,11 +29,11 @@ export const AuthForm = (props) => {
                   validate={[required, minInput]}  /><br />
               {/*Remember me
                <input type="checkbox"/><br />*/}
-               <span className="error"> {props.authError}</span><br />               
+               <span className="error"> {props.authError}</span><br />
               {!props.regMode ? <button>Login</button> : <button>Sign up</button>}<br /><br />
             </form>
             {!props.regMode && <div>You are not registred?
-            <button onClick={() => props.setReg(true)}>To register</button></div>}             
+            <button onClick={() => props.setReg(true)}>To register</button></div>}
          </div>
       </div>
    )
@@ -44,21 +44,25 @@ let ReduxLoginForm = reduxForm ({form: 'login'})(AuthForm)
 
 
 const Authorization = (props) => {
-   
+
    let [regMode, setReg] = useState(false)
 
-   const onSubmit = (formData) =>{
+   const onSubmit = (formData) => {
       let data = {
          username: formData.login,
          password: formData.password
       }
       let reg
-      if(regMode) reg = "registration"
+      if (regMode) reg = "registration"
       props.authorizationTC(data, reg)
    }
 
-   if (!props.token){
-      return <ReduxLoginForm regMode={regMode} setReg={setReg} onSubmit={onSubmit} authError={props.authError}/>
+   if (!props.token) {
+      return <ReduxLoginForm
+               regMode={regMode}
+               setReg={setReg}
+               onSubmit={onSubmit}
+               authError={props.authError}/>
    } else return <Redirect to={"/"} />
 }
 
