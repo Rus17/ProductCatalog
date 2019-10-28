@@ -4,7 +4,7 @@ import "./preloader.css"
 
 const Preloader = () => {
   return (
-      <div className="preloader">
+      <div className="container preloader">
          <div className="loading">
             Loading ...
          </div>

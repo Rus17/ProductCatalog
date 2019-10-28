@@ -18,7 +18,7 @@ const Rating = (props) => {
    }
 
    return (
-      <div>
+      <div className="star">
          {starsCounter()}
       </div>
    )
@@ -30,8 +30,8 @@ const ProductComments = (props) => {
    const showComments = props.commentsList.map((c) => {
          
       return (
-         <div key={c.id} className="comment">
-            <h2 className="name">{c.created_by.username}</h2>
+         <div key={c.id} className="item">
+            <h2>{c.created_by.username}</h2>
             <div>
                <Rating rate={c.rate} /><br />
             </div>
@@ -47,7 +47,7 @@ const ProductComments = (props) => {
 
    return (
       <div>
-         <h2>Comments</h2>
+         <h2 className="button">Comments</h2>
          {showComments}
       </div>
    )

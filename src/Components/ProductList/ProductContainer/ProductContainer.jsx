@@ -9,11 +9,11 @@ import MyComment from "./MyComment/MyComment"
 const ProductContainer = (props) => {
 
    const showProduct = props.productList.filter((p) => {
-      return (p.id == props.match.params.id)
+      return (String(p.id) === props.match.params.id)
    })
 
    return (
-      <div  className="productList">
+      <div>
          <ProductInfo showProduct={showProduct[0]} server={server} />
          {props.token && <MyComment id={props.match.params.id} token={props.token} />}
          <ProductCommentsContainer id={props.match.params.id} />

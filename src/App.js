@@ -7,6 +7,7 @@ import store from "./redux/store.js"
 import ProductContainer from "./Components/ProductList/ProductContainer/ProductContainer"
 import {getProductListTC} from "./redux/productListReducer"
 import Authorization from "./Components/Header/Authorization/Authorization"
+import "./main.css"
 
 class AppContainer extends React.Component {
 

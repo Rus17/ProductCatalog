@@ -9,7 +9,7 @@ const Header = (props) => {
      <div className="header">
          <div>
             <NavLink to="/">
-               <img src={logo} alt="logo" className="logo" />
+               <img src={logo} alt="logo" />
             </NavLink>
          </div>
 

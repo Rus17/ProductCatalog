@@ -1,23 +1,15 @@
 .header{
    display: grid;
-   grid-template-columns: 1fr 1fr;
-   align-items: center;
-   margin: 0 auto;
    background-color: aqua;
-   width: 760px;
-   height: 70px;
-   /* text-align: right; */
+   grid-template-columns: 1fr 1fr;
    padding: 20px;
+   width: 760px
 }
 
 .link{
    color: blue;
    text-decoration: underline;
    cursor: pointer
-}
-
-.logo{
-  justify-self: start
 }
 
 .right{

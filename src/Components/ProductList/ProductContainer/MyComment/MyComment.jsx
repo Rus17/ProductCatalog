@@ -3,10 +3,10 @@ import {Field, reduxForm} from 'redux-form'
 import {connect} from 'react-redux'
 import starFill from "./../../../../images/starFill.png"
 import starStroke from "./../../../../images/starStroke.png"
-import "./../ProductComments/productComments.css"
 import {sendMyCommentTC} from "./../../../../redux/productCommentsReducer"
 import {TextArea} from './../../../FormsControls/FormsControls'
 import {required, minText} from "./../../../../Validators/validators"
+import "./myComment.css"
 
 const CommentForm = (props) => {
 
@@ -69,9 +69,9 @@ const CommentForm = (props) => {
    }
 
    return (
-      <form onSubmit={props.handleSubmit} className="comment">
+      <form onSubmit={props.handleSubmit} className="item">
          Rate the product<br />
-         <div>
+         <div className="star">
             {!props.myRate ? showCounter() : selectedStars() }
          </div>
          <br />

@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import "./../../ProductList/productList.css"
 import "./authorization.css"
 import {connect} from "react-redux"
 import {Field, reduxForm} from 'redux-form'
@@ -12,7 +11,7 @@ import {required, minInput} from "./../../../Validators/validators"
 const AuthForm = (props) => {
 
    return (
-      <div className="productList">
+      <div className="item">
         <div className="product">
            <form onSubmit={props.handleSubmit}>
                Enter your login
@@ -26,9 +25,7 @@ const AuthForm = (props) => {
                   name="password"
                   type="password"
                   component={Input}
-                  validate={[required, minInput]}  /><br />
-               {/*Remember me
-               <input type="checkbox"/><br />*/}
+                  validate={[required, minInput]}  />
                <span className="error"> {props.authError}</span><br />
                {!props.regMode ? <button>Login</button> : <button>Sign up</button>}<br /><br />
             </form>

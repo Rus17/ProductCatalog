@@ -1,25 +1,7 @@
-.comment{
-   display: grid;
-   background-color: white;
-   width: 720px;
-   padding: 20px;
-   margin-top: 20px;
-/*   justify-content: space-between*/
-}
-
-.name{
-   margin: 0
-}
-
 .date{
-   justify-self: end
-}
-
-.comment img {
-   width: 20px
+   text-align: end
 }
 
 .button{
-  justify-self: start;
   margin-left: 20px
 }
