@@ -5,14 +5,14 @@ import "./preloader.css"
 const Preloader = () => {
   return (
       <div className="preloader">
-        <div className="loading">
-          Loading ...
-        </div>
-        <div>
-          <img src={spinner} alt="spinner" />
-        </div>
+         <div className="loading">
+            Loading ...
+         </div>
+         <div>
+            <img src={spinner} alt="spinner" />
+         </div>
       </div>
-  )
+   )
 }
 
 export default Preloader

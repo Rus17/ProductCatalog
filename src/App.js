@@ -4,11 +4,9 @@ import {BrowserRouter, Route} from "react-router-dom"
 import ProductListContainer from "./Components/ProductList/ProductListContainer"
 import HeaderContainer from "./Components/Header/HeaderContainer"
 import store from "./redux/store.js"
-import "./app.css"
 import ProductContainer from "./Components/ProductList/ProductContainer/ProductContainer"
 import {getProductListTC} from "./redux/productListReducer"
 import Authorization from "./Components/Header/Authorization/Authorization"
-
 
 class AppContainer extends React.Component {
 
@@ -30,7 +28,6 @@ class AppContainer extends React.Component {
 }
 
 
-
 let MapDispatchToProps = (dispatch) => {
    return {
       getProductListTC: () => dispatch(getProductListTC())
@@ -38,7 +35,6 @@ let MapDispatchToProps = (dispatch) => {
 }
 
 const AppConnect = connect(null, MapDispatchToProps)(AppContainer)
-
 
 
 const ProductCatalog = () => {

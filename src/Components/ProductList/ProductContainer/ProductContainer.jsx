@@ -15,16 +15,13 @@ const ProductContainer = (props) => {
    return (
       <div  className="productList">
          <ProductInfo showProduct={showProduct[0]} server={server} />
-         {props.token && <MyComment id={props.match.params.id} token={props.token}/>}
-         <ProductCommentsContainer id={props.match.params.id}/>
+         {props.token && <MyComment id={props.match.params.id} token={props.token} />}
+         <ProductCommentsContainer id={props.match.params.id} />
       </div>
    )
 }
 
-
-
 const WithUrlProduct = withRouter(ProductContainer)
-
 
 let MapStateToProps = (state) => {
    return {

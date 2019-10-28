@@ -6,7 +6,6 @@ let initialState = {
    productList: []
 }
 
-
 const productListReducer = (state = initialState, action) => {
 
    switch(action.type) {
@@ -15,7 +14,6 @@ const productListReducer = (state = initialState, action) => {
             ...state,
             productList: action.data
          }
-
       default:
          return state;
    }
@@ -23,7 +21,6 @@ const productListReducer = (state = initialState, action) => {
 
 // ------------------------- Action Creators -------------------------
 // ------------------------- Get Product List -------------------------
-
 export const getProductListAC = data => {
    return ({ type: GET_PRODUCT_LIST, data })
 }

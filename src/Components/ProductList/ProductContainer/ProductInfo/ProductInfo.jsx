@@ -3,7 +3,8 @@ import React from "react"
 import "./../../../ProductList/productList.css"
 
 const ProductInfo = (props) => {
-   if (props.showProduct) {
+   
+   if (props.showProduct) {      
       return (
          <div className="product">
             <h2>{props.showProduct.title}</h2>
@@ -12,8 +13,7 @@ const ProductInfo = (props) => {
             <div>{props.showProduct.text}</div>
          </div>
       )
-   }
-   else return null
+   } else return null
 }
 
 export default ProductInfo

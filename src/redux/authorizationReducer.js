@@ -8,7 +8,6 @@ let initialState = {
    authError: ""
 }
 
-
 const authorizationReducer = (state = initialState, action) => {
 
    switch(action.type) {
@@ -17,21 +16,19 @@ const authorizationReducer = (state = initialState, action) => {
             ...state,
             token: action.token
          }
-
       case AUTH_ERROR:
          return {
             ...state,
             authError: action.message
          }
-
       default:
          return state;
    }
 }
 
+
 // ------------------------- Action Creators -------------------------
 // ----------------- Registration / authorization --------------------
-
 export const authorizationAC = token => {
    return ({ type: AUTHORIZATION, token })
 }

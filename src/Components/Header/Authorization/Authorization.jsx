@@ -1,10 +1,10 @@
 import React, {useState} from "react"
 import "./../../ProductList/productList.css"
+import "./authorization.css"
 import {connect} from "react-redux"
-import {authorizationTC} from "./../../../redux/authorizationReducer"
 import {Field, reduxForm} from 'redux-form'
 import {Redirect} from 'react-router-dom'
-import "./authorization.css"
+import {authorizationTC} from "./../../../redux/authorizationReducer"
 import {Input} from './../../FormsControls/FormsControls'
 import {required, minInput} from "./../../../Validators/validators"
 
@@ -15,7 +15,7 @@ const AuthForm = (props) => {
       <div className="productList">
         <div className="product">
            <form onSubmit={props.handleSubmit}>
-              Enter your login
+               Enter your login
                <Field
                   name="login"
                   type="text"
@@ -27,10 +27,10 @@ const AuthForm = (props) => {
                   type="password"
                   component={Input}
                   validate={[required, minInput]}  /><br />
-              {/*Remember me
+               {/*Remember me
                <input type="checkbox"/><br />*/}
                <span className="error"> {props.authError}</span><br />
-              {!props.regMode ? <button>Login</button> : <button>Sign up</button>}<br /><br />
+               {!props.regMode ? <button>Login</button> : <button>Sign up</button>}<br /><br />
             </form>
             {!props.regMode && <div>You are not registred?
             <button onClick={() => props.setReg(true)}>To register</button></div>}

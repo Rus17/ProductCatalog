@@ -4,20 +4,11 @@ import {getProductListTC} from "./../../redux/productListReducer"
 import ProductList from "./ProductList"
 import Preloader from "./../Preloader/Preloader"
 
+const ProductListContainer = (props) => {
 
-
-class ProductListContainer extends React.Component {
-
-   componentDidMount(props) {
-      // this.props.getProductListTC()
-   }
-
-   render() {
-     if(this.props.productListPage.productList.length === 0) return <Preloader />
-      return (
-         <ProductList productListPage={this.props.productListPage} />
-      )
-   }
+   if (props.productListPage.productList.length === 0) return <Preloader />
+   else return <ProductList productListPage={props.productListPage} />
+   
 }
 
 let MapStateToProps = (state) => {

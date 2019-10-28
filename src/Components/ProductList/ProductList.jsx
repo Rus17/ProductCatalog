@@ -16,20 +16,7 @@ const ProductList = (props) => {
       <div className="productList">
          {list}
       </div>
-
    )
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default ProductList

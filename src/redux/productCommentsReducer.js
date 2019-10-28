@@ -6,7 +6,6 @@ let initialState = {
    commentsList: []
 }
 
-
 const productListReducer = (state = initialState, action) => {
 
    switch(action.type) {
@@ -15,7 +14,6 @@ const productListReducer = (state = initialState, action) => {
             ...state,
             commentsList: action.data
          }
-
         default:
          return state;
    }
@@ -23,7 +21,6 @@ const productListReducer = (state = initialState, action) => {
 
 // ------------------------- Action Creators -------------------------
 // ------------------------- Get Comments -------------------------
-
 export const getProductCommentsAC = data => {
    return ({ type: GET_PRODUCT_COMMENTS, data })
 }

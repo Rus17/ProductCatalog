@@ -7,13 +7,15 @@ import Preloader from "./../../../Preloader/Preloader"
 
 class ProductCommentsContainer extends React.Component {
 
-   componentDidMount(props){
+   componentDidMount(props) {
       this.props.getProductCommentsTC(this.props.id)
    }
 
 
    render(props) {
-     if(this.props.commentsList.length === 0) return <Preloader />
+      
+      if(this.props.commentsList.length === 0) return <Preloader />
+      
       return (
          <div>
             {this.props.id && <ProductComments commentsList={this.props.commentsList} />}

@@ -4,12 +4,16 @@ import starFill from "./../../../../images/starFill.png"
 import starStroke from "./../../../../images/starStroke.png"
 
 const Rating = (props) => {
+   
    const starsCounter = () => {
+      
       let stars = []
+      
       for (var i = 0; i < 5; i++){
          if (i < props.rate) stars[i] = <img key={i} src={starFill} alt="star"/>
          else stars[i] = <img key={i} src={starStroke} alt="star"/>
       }
+      
       return stars
    }
 
@@ -28,17 +32,15 @@ const ProductComments = (props) => {
       return (
          <div key={c.id} className="comment">
             <h2 className="name">{c.created_by.username}</h2>
-            {/*<span className="commentId">Comment # {c.id}</span>*/}
-           <div>
-             <Rating rate={c.rate} /><br />
-              {/*Rating: {c.rate} */}
-           </div>
-           <div>
-              {c.text}
-           </div>
-           <div className="date">
-              {c.created_at}
-           </div>
+            <div>
+               <Rating rate={c.rate} /><br />
+            </div>
+            <div>
+               {c.text}
+            </div>
+            <div className="date">
+               {c.created_at}
+            </div>
          </div>
       )
    })
