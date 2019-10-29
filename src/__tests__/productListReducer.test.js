@@ -1,4 +1,4 @@
-import productListReducer, {getProductListAC} from "./productListReducer"
+import productListReducer, {getProductListAC} from "./../redux/productListReducer"
 
  // 1. test data
 let action = getProductListAC(

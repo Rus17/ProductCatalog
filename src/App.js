@@ -14,7 +14,7 @@ class AppContainer extends React.Component {
    componentDidMount(props) {
       this.props.getProductListTC()
    }
-
+   
    render() {
       return (
          <div className="container">
@@ -23,11 +23,9 @@ class AppContainer extends React.Component {
             <Route path='/product/:id' component={ProductContainer} />
             <Route path='/authorization' component={Authorization} />
          </div>
-
       )
    }
 }
-
 
 let MapDispatchToProps = (dispatch) => {
    return {

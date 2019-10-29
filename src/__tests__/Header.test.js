@@ -1,9 +1,9 @@
 import {BrowserRouter} from "react-router-dom"
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import {render, unmountComponentAtNode} from "react-dom";
+import {act} from "react-dom/test-utils";
 
-import Header from "./Header";
+import Header from "./../Components/Header/Header";
 
 let container = null;
 beforeEach(() => {
