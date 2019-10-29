@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ProductCatalog/static/css/main.36899264.chunk.css",
-    "main.js": "/ProductCatalog/static/js/main.5e8eb804.chunk.js",
-    "main.js.map": "/ProductCatalog/static/js/main.5e8eb804.chunk.js.map",
+    "main.js": "/ProductCatalog/static/js/main.a899b282.chunk.js",
+    "main.js.map": "/ProductCatalog/static/js/main.a899b282.chunk.js.map",
     "runtime-main.js": "/ProductCatalog/static/js/runtime-main.4ad54ec0.js",
     "runtime-main.js.map": "/ProductCatalog/static/js/runtime-main.4ad54ec0.js.map",
     "static/js/2.0d6e8adf.chunk.js": "/ProductCatalog/static/js/2.0d6e8adf.chunk.js",
     "static/js/2.0d6e8adf.chunk.js.map": "/ProductCatalog/static/js/2.0d6e8adf.chunk.js.map",
     "index.html": "/ProductCatalog/index.html",
-    "precache-manifest.f8e0c63aa8a0ab27d21c4686f9c29af9.js": "/ProductCatalog/precache-manifest.f8e0c63aa8a0ab27d21c4686f9c29af9.js",
+    "precache-manifest.2e2115fe1b6dc430b18300758807ec53.js": "/ProductCatalog/precache-manifest.2e2115fe1b6dc430b18300758807ec53.js",
     "service-worker.js": "/ProductCatalog/service-worker.js",
     "static/css/main.36899264.chunk.css.map": "/ProductCatalog/static/css/main.36899264.chunk.css.map",
     "static/media/spinner.svg": "/ProductCatalog/static/media/spinner.a66ca6b9.svg"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4ad54ec0.js",
     "static/js/2.0d6e8adf.chunk.js",
     "static/css/main.36899264.chunk.css",
-    "static/js/main.5e8eb804.chunk.js"
+    "static/js/main.a899b282.chunk.js"
   ]
 }
