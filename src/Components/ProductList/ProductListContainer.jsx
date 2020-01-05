@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {getProductListTC} from "./../../redux/productListReducer"
+//import {getProductListTC} from "./../../redux/productListReducer"
 import ProductList from "./ProductList"
 import Preloader from "./../Preloader/Preloader"
 
@@ -19,7 +19,7 @@ let MapStateToProps = (state) => {
 
 let MapDispatchToProps = (dispatch) => {
    return {
-      getProductListTC: () => {dispatch(getProductListTC())}
+//      getProductListTC: () => {dispatch(getProductListTC())}
    }
 }
 

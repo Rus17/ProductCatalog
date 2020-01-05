@@ -3,7 +3,7 @@ import "./authorization.css"
 import {connect} from "react-redux"
 import {Field, reduxForm} from 'redux-form'
 import {Redirect} from 'react-router-dom'
-import {authorizationTC} from "./../../../redux/authorizationReducer"
+import {authorizationSagaAC} from "./../../../redux/authorizationReducer"
 import {Input} from './../../FormsControls/FormsControls'
 import {required, minInput} from "./../../../Validators/validators"
 
@@ -51,7 +51,7 @@ const Authorization = (props) => {
       }
       let reg
       if (regMode) reg = "registration"
-      props.authorizationTC(data, reg)
+      props.authorizationSagaAC(data, reg)
    }
 
    if (!props.token) {
@@ -63,6 +63,8 @@ const Authorization = (props) => {
    } else return <Redirect to={"/"} />
 }
 
+
+
 let MapStateToProps = (state) => {
    return {
       token: state.authorizationPage.token,
@@ -72,7 +74,7 @@ let MapStateToProps = (state) => {
 
 let MapDispatchToProps = (dispatch) => {
    return {
-      authorizationTC: (data, reg) => dispatch(authorizationTC(data, reg))
+      authorizationSagaAC: (data, reg) => dispatch(authorizationSagaAC(data, reg))
    }
 }
 

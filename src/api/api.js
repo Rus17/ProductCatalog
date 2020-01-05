@@ -13,7 +13,7 @@ export const getProductCommentsAPI = (id) => {
 }
 
 // ----------------- Registration / authorization --------------------
-export const authorizationAPI = (data, reg) => {
+export const authorizationAPI = (data, reg) => {   
    let regUrl = reg ? "register" : "login"
    let dataJSON = JSON.stringify(data)
    return axios.post(`${server}api/${regUrl}/`, dataJSON, {

@@ -5,14 +5,14 @@ import ProductListContainer from "./Components/ProductList/ProductListContainer"
 import HeaderContainer from "./Components/Header/HeaderContainer"
 import store from "./redux/store.js"
 import ProductContainer from "./Components/ProductList/ProductContainer/ProductContainer"
-import {getProductListTC} from "./redux/productListReducer"
+import {getProductListForSaga} from "./redux/productListReducer"
 import Authorization from "./Components/Header/Authorization/Authorization"
 import "./main.css"
 
 class AppContainer extends React.Component {
 
    componentDidMount(props) {
-      this.props.getProductListTC()
+      this.props.getPL()
    }
    
    render() {
@@ -29,7 +29,7 @@ class AppContainer extends React.Component {
 
 let MapDispatchToProps = (dispatch) => {
    return {
-      getProductListTC: () => dispatch(getProductListTC())
+      getPL: () => dispatch(getProductListForSaga())
    }
 }
 
