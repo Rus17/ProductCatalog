@@ -42,43 +42,34 @@ const authErrorAC = message => {
 
 // ----------------------- Get saga --------------------------
 export const authorizationSagaAC = (data, reg) => {
-   return ({ 
-      type: AUTHORIZATION_SAGA, 
-      data, 
-      reg 
+   return ({
+      type: AUTHORIZATION_SAGA,
+      data,
+      reg
    })
 }
 
-// ------------------------- Thunk Creators  -------------------------
-// ----------------- Registration / authorization --------------------
-//export const authorizationTC = (data, reg) => {
-//   return (dispatch) => {
-//      authorizationAPI(data, reg)
-//      .then((response) => {
-//         if(response.data.success)dispatch(authorizationAC(response.data.token))
-//         else dispatch(authErrorAC(response.data.message))
-//      })
-//   }
-//}
 
 // ------------------------------ Sagas  -------------------------------
 
 
 function* authorizationSaga(dataAction){
-//   console.log("authorizationSaga start 1", dataAction.data, dataAction.reg)
    try{
       const response = yield call(() => {
-//         console.log("data, reg", data, reg)
          return authorizationAPI(dataAction.data, dataAction.reg)
       })
-      yield put(authorizationAC(response.data.token))
+      if(response.data.success){
+        yield put(authorizationAC(response.data.token))
+        yield put(authErrorAC(""))
+      }
+      else throw response
    }
    catch (response){
-      put(authErrorAC(response.data.message))
+      yield put(authErrorAC(response.data.message))
    }
 }
 
-export function* watchAuthorizationSaga() {   
+export function* watchAuthorizationSaga() {
    yield takeEvery(AUTHORIZATION_SAGA, authorizationSaga)
 }
 

@@ -32,29 +32,15 @@ export const getProductListForSaga = () => {
 }
 
 
-
-
-
-// ------------------------- Thunk Creators  -------------------------
-// ------------------------- Get Product List -------------------------
-//export const getProductListTC = () =>{
-//   return (dispatch) => {
-//      getProductListAPI()
-//      .then((response) => {
-//         dispatch(getProductListAC(response.data))
-//      })
-//   }
-//}
-
 // ------------------------------ Sagas  -------------------------------
-
+// ------------------------- Get Product List ------------------------
 function* getProductListSaga() {
    try {
-      const response = yield call(() => {return getProductListAPI()})   
+      const response = yield call(() => {return getProductListAPI()})
       yield put(getProductListAC(response.data))
-   }
-   catch (error){
-      console.log(error)
+    }
+   catch(e){
+     console.log(e, "failure")
    }
 }
 

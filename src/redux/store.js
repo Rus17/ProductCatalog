@@ -9,6 +9,10 @@ import authorizationReducer from "./authorizationReducer"
 
 import {watchAuthorizationSaga} from "./authorizationReducer"
 import {watchGetProductListSaga} from "./productListReducer"
+import {
+  watchgetProductCommentsSaga,
+  watchSendMyCommentSaga
+} from "./productCommentsReducer"
 
 
 let reducers = combineReducers({
@@ -24,6 +28,8 @@ let store = createStore(reducers, applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(watchGetProductListSaga)
 sagaMiddleware.run(watchAuthorizationSaga)
+sagaMiddleware.run(watchgetProductCommentsSaga)
+sagaMiddleware.run(watchSendMyCommentSaga)
 
 
 window.store = store

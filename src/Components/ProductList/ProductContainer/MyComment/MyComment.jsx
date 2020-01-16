@@ -3,7 +3,7 @@ import {Field, reduxForm} from 'redux-form'
 import {connect} from 'react-redux'
 import starFill from "./../../../../images/starFill.png"
 import starStroke from "./../../../../images/starStroke.png"
-import {sendMyCommentTC} from "./../../../../redux/productCommentsReducer"
+import {sendMyCommentSagaAC} from "./../../../../redux/productCommentsReducer"
 import {TextArea} from './../../../FormsControls/FormsControls'
 import {required, minText} from "./../../../../Validators/validators"
 import "./myComment.css"
@@ -11,12 +11,12 @@ import "./myComment.css"
 const CommentForm = (props) => {
 
   let [starsCounter, setStars] = useState(0)
-  
+
   // --------- Stars after clicking ---------------
    const selectedStars = () => {
-      
+
       let stars = []
-      
+
       for (let i = 1; i < 6; i++) {
          if (i <= props.myRate) {
             stars[i] = <img
@@ -34,15 +34,15 @@ const CommentForm = (props) => {
                         />
          }
       }
-      
+
       return stars
    }
 
    // --------- Stars before clicking ---------------
    const showCounter = () => {
-      
+
       let stars = []
-      
+
       for (let i = 1; i < 6; i++) {
          if (i <= starsCounter){
             stars[i] = <img
@@ -64,7 +64,7 @@ const CommentForm = (props) => {
                           />
          }
       }
-      
+
       return stars
    }
 
@@ -83,7 +83,7 @@ const CommentForm = (props) => {
                component={TextArea}
                validate={[required, minText]}
                rows="10"
-               cols="60" 
+               cols="60"
             />
          </div><br />
          <div>
@@ -101,13 +101,13 @@ const MyComment = (props) => {
    let [commentMode, setEditMode] = useState(false)
 
    const onSubmit = (formData) => {
-      
+
       let data = {
          rate: myRate,
          text: formData.text
       }
-      
-      props.sendMyCommentTC(data, props.id, props.token)
+
+      props.sendMyCommentSagaAC(data, props.id, props.token)
       setEditMode(false)
       setRate(0)
    }
@@ -122,7 +122,9 @@ const MyComment = (props) => {
 
 let MapDispathToProps = (dispatch) => {
    return {
-      sendMyCommentTC: (data, id, token) => dispatch(sendMyCommentTC(data, id, token))
+      sendMyCommentSagaAC: (data, id, token) => dispatch(
+        sendMyCommentSagaAC(data, id, token)
+      )
   }
 }
 
